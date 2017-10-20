@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import SignUpForm from '../components/Form/SignUpForm.js';
-
+import API from '../utils/API.js'
 
 class SignUpPage extends React.Component {
 
@@ -47,6 +47,9 @@ class SignUpPage extends React.Component {
   processForm(event) {
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
+
+
+
 
     console.log('name:', this.state.user.name);
     console.log('email:', this.state.user.email);

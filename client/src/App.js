@@ -20,12 +20,12 @@ const App = () =>
       <Navbar />
       <Wrapper>
 
-        <Route exact path="/" component={About} />
+        <Route exact path="/" component={LoginPage} />
         <Route exact path="/about" component={About} />
         <Route exact path="/userSkill" component={userSkill} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/signUp" component ={SignUpPage} />
-        <Route exact path="/LoginIn" component ={LoginPage} />
+        <Route exact path="/login" component ={LoginPage} />
 
       </Wrapper>
       <Footer />
