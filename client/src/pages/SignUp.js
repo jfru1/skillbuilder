@@ -48,12 +48,21 @@ class SignUpPage extends React.Component {
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
 
+const obj = {
+name:this.state.user.name,
+email:this.state.user.email,
+password:this.state.user.password
+
+}
 
 
 
-    console.log('name:', this.state.user.name);
-    console.log('email:', this.state.user.email);
-    console.log('password:', this.state.user.password);
+
+API.saveClient(obj)
+.then(res => console.log(res))
+.catch(err => console.log(err));
+
+
   }
 
   /**
