@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import LoginForm from '../components/Form/LoginForm.js';
-
+import API from '../utils/API.js'
 
 class LoginPage extends React.Component {
 
@@ -31,16 +31,68 @@ class LoginPage extends React.Component {
   processForm(event) {
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
+ //
+ //    const email = encodeURIComponent(this.state.user.email);
+ // const password = encodeURIComponent(this.state.user.password);
+ // const formData = `email=${email}&password=${password}`;
+ //
+ // // create an AJAX request
+ // const xhr = new XMLHttpRequest();
+ // xhr.open('post', 'http://localhost:3001/auth/login');
+ // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+ // xhr.responseType = 'json';
+ // xhr.addEventListener('load', () => {
+ //   if (xhr.status === 200) {
+ //     // success
+ //
+ //     // change the component-container state
+ //     this.setState({
+ //       errors: {}
+ //     });
+ //
+ //     console.log('The form is valid');
+ //   } else {
+ //     // failure
+ //
+ //     // change the component state
+ //     const errors = xhr.response.errors ? xhr.response.errors : {};
+ //     errors.summary = xhr.response.message;
+ //
+ //     this.setState({
+ //       errors
+ //     });
+ //   }
+ // });
+ // xhr.send(formData);
 
-    console.log('email:', this.state.user.email);
-    console.log('password:', this.state.user.password);
+var password = this.state.user.password;
+API.checkClient(this.state.user)
+.then(function(res){
+
+
+  if(res.data.length > 0)
+  {
+    console.log("user Found")
+    if(res.data[0].password === password)
+    {
+      console.log("password approved")
+    }
+    else {
+      console.log("Wrong pass")
+    }
+  }
+  else {
+    console.log("user not found")
+  }
+})
+
+
+
+    // console.log('email:', this.state.user.email);
+    // console.log('password:', this.state.user.password);
   }
 
-  /**
-   * Change the user object.
-   *
-   * @param {object} event - the JavaScript event object
-   */
+
   changeUser(event) {
     const field = event.target.name;
     const user = this.state.user;
@@ -50,6 +102,22 @@ class LoginPage extends React.Component {
       user
     });
   }
+
+
+
+loadUser(){
+return this.state.user;
+
+}
+
+
+
+
+
+
+
+
+
 
   /**
    * Render the component.
