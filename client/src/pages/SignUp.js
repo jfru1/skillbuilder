@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import SignUpForm from '../components/Form/SignUpForm.js';
 import API from '../utils/API.js'
 
+
 class SignUpPage extends React.Component {
 
   /**

@@ -4,6 +4,7 @@ import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {withRouter} from "react-router-dom";
 
 const LoginForm = ({
   onSubmit,
@@ -14,7 +15,7 @@ const LoginForm = ({
 
   <MuiThemeProvider>
   <Card className="container">
-    <form action="/" onSubmit={onSubmit}>
+    <form action="/userSkill" onSubmit={onSubmit}>
       <h2 className="card-heading">Login</h2>
 
 
@@ -40,7 +41,8 @@ const LoginForm = ({
       </div>
 
       <div className="button-line">
-        <RaisedButton type="submit" label="Log in" primary />
+        <RaisedButton  type="submit" label="Log in" primary />
+
       </div>
 
       <CardText>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>
