@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import LoginPage from "./Login.js"
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 
 class skillPage extends Component {
@@ -36,6 +38,21 @@ console.log(this.state.goal)
 
 
 render(){
+{this.props.skill != undefined ?(
+
+console.log(this.props.skill)
+
+):(
+
+console.log("no skill filled")
+
+)}
+
+console.log(this.props.name)
+console.log(this.props.email)
+console.log(this.props.password)
+console.log(this.props.skill)
+
 
   return(
 
@@ -80,5 +97,20 @@ render(){
 
 }
 
+const mapStateToProps = (state) =>({
 
-export default skillPage;
+
+name:state.user.name,
+email:state.user.email,
+password:state.user.password,
+skill:state.user.skill,
+goal:state.user.goal,
+steps:state.user.skills
+
+
+
+})
+
+
+
+export default connect(mapStateToProps)(skillPage);
