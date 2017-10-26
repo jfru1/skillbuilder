@@ -5,12 +5,25 @@ import { updateUser } from '../actions/index';
 import API from '../utils/API.js'
 import Skillform from '../components/Form/skillForm.js'
 import Navbar from '../components/Navbar/Navbar'
-
+const moment = require('moment')
 
 class YourPage extends React.Component {
   constructor(props) {
     super(props);
 
+}
+
+
+
+checkTime(a){ //a is just the object in question, the post that was made.
+    var timeNow = moment();
+    var timeStamp = moment(a.created); //a.created is the stamp and can be changed to whatever it actually resolves to
+    var hoursElapsed = timeNow.diff(timeStamp, 'h');
+    if (hoursElapsed > 24){
+        // [Load up the components for entering in the new entry]
+    } else {
+        // [Load up the box, greyed out]
+    }
 }
 
 
@@ -100,7 +113,7 @@ step2:state.user.step2,
 step3:state.user.step3,
 step4:state.user.step4,
 step5:state.user.step5,
-
+createdAt:state.user.createdAt
 
 })
 

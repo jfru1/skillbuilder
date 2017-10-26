@@ -1,7 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const moment = require("moment-timezone")
+
+var location = moment.tz.guess()
 
 const clientSchema = new Schema({
+  
+createdAt :{type:String, required:true, default:moment.tz(location).format()},
 name: {type: String, required: true},
 email:{type:String, required: true},
 password: {type:String, required: true},
