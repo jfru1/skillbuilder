@@ -7,7 +7,7 @@ const Navbar = props =>
   <nav className="navbar navbar-default">
     <div className="container-fluid">
       <div className="navbar-header">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/About">
           Skill Builder
         </Link>
       </div>

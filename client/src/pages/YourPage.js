@@ -21,7 +21,7 @@ render(){
   return (
 
     <div>
-    <h3>{this.props.email}</h3>
+    <h3>Welcome : {this.props.name}</h3>
     </div>
   );
 }

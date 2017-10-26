@@ -36,7 +36,17 @@ class skillPage extends React.Component {
 componentWillMount(){
 
   this.setState({
-    email:this.props.email
+    email:this.props.email,
+    name:this.props.name,
+    skill:this.props.skill,
+    goal:this.props.goal,
+    step1:this.props.step1,
+    step2:this.props.step2,
+    step3:this.props.step3,
+    step4:this.props.step4,
+    step5:this.props.step5,
+
+
   });
 }
 
@@ -64,19 +74,13 @@ componentWillMount(){
 
     };
 
-    // {this.props.skill ? (
-    //
-    //   <h1> H1 </h1>
-    //
-    // ) : (
-
 
 render(){
 
   return(
     <div>
 
-    {this.props.goal === "" ? (
+    {this.props.skill ? (
       <div>
 <YourPage/>
       </div>
@@ -103,16 +107,16 @@ render(){
 const mapStateToProps = (state) =>({
 
 
-name:state.user.name,
+// name:state.user.name,
 email:state.user.email,
-password:state.user.password,
+// password:state.user.password,
 skill:state.user.skill,
-goal:state.user.goal,
-step1:state.user.step1,
-step2:state.user.step2,
-step3:state.user.step3,
-step4:state.user.step4,
-step5:state.user.step5,
+// goal:state.user.goal,
+// step1:state.user.step1,
+// step2:state.user.step2,
+// step3:state.user.step3,
+// step4:state.user.step4,
+// step5:state.user.step5,
 
 
 
@@ -122,14 +126,10 @@ step5:state.user.step5,
 
 const mapDispatchToProps = (dispatch) => ({
   callApi: (value, state) => {
-console.log(state)
     API.saveSkills(state)
     .then(function(res){
 
-      console.log("after api")
-      console.log(res)
-
-      dispatch(updateUser(res))
+      dispatch(updateUser(res.data))
 
     })
   }

@@ -17,7 +17,6 @@ const App = () =>
 
   <Router history={history} >
     <div>
-      <Navbar />
 
         <Route exact path="/" component={LoginPage} />
         <Route exact path="/about" component={About} />

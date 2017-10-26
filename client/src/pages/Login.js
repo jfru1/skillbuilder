@@ -91,7 +91,7 @@ console.log(res)
         if(res.data.password === password)
         {
           console.log("password approved")
-          dispatch(updateUser(res))
+          dispatch(updateUser(res.data))
           history.push('/userSkill')
 
         }

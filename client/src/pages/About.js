@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar/Navbar"
 const About = () =>
 
 <div class="container">
+
+<Navbar/>
   <div class="row">
     <div class="col-md-8">
      <div class="panel panel-default">
