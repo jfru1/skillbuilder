@@ -24,6 +24,7 @@ export default function(state = DEFAULT_STATE, action) {
     console.log(action.payload)
 
 return {
+createdAt:action.payload.createdAt,
 name:action.payload.name,
 email:action.payload.email,
 password:action.payload.password,
