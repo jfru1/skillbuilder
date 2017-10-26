@@ -1,6 +1,11 @@
 import React, { PropTypes } from 'react';
 import SignUpForm from '../components/Form/SignUpForm.js';
 import API from '../utils/API.js'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { updateUser } from '../actions/index';
+import {withRouter} from "react-router-dom";
+import history from '../history.js'
 
 
 class SignUpPage extends React.Component {
@@ -56,15 +61,8 @@ password:this.state.user.password
 
 }
 
-
-
-
-API.saveClient(obj)
-.then(res => console.log(res))
-.catch(err => console.log(err));
-
-
-  }
+this.props.callApi(event, this.state)
+}
 
   /**
    * Render the component.
@@ -82,4 +80,16 @@ API.saveClient(obj)
 
 }
 
-export default SignUpPage;
+
+const mapDispatchToProps = (dispatch) => ({
+  callApi: (value, state) => {
+
+    API.saveClient(state.user)
+    .then(function(res){
+  dispatch(updateUser(res))
+  history.push('/userSkill')
+
+    })
+  }
+})
+export default withRouter(connect(null, mapDispatchToProps)(SignUpPage));
