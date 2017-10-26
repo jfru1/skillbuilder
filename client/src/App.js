@@ -18,7 +18,6 @@ const App = () =>
   <Router>
     <div>
       <Navbar />
-      <Wrapper>
 
         <Route exact path="/" component={LoginPage} />
         <Route exact path="/about" component={About} />
@@ -27,7 +26,6 @@ const App = () =>
         <Route exact path="/signUp" component ={SignUpPage} />
         <Route exact path="/login" component ={LoginPage} />
 
-      </Wrapper>
       <Footer />
     </div>
   </Router>;

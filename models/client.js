@@ -7,7 +7,13 @@ email:{type:String, required: true},
 password: {type:String, required: true},
 skill:{type:String, required:false},
 goal:{type:String, required:false},
-steps:{type:Array, required:false},
+step1:{type:String, required:false},
+step2:{type:String, required:false},
+step3:{type:String, required:false},
+step4:{type:String, required:false},
+step5:{type:String, required:false},
+
+
 
 });
 

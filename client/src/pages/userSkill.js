@@ -4,27 +4,54 @@ import {bindActionCreators} from 'redux';
 import { updateUser } from '../actions/index';
 import API from '../utils/API.js'
 import Skillform from '../components/Form/skillForm.js'
-
+import YourPage from '../pages/YourPage'
 
 class skillPage extends React.Component {
+
+
+
   constructor(props) {
     super(props);
 
-  this.state = {
-    user:"",
-    skill:"",
-    goal:"",
-    steps:[]
+    // set the initial component state
+    this.state = {
+        email:'',
+        name:'',
+        skill: '',
+        goal: '',
+        step1:'',
+        step2:'',
+        step3:'',
+        step4:'',
+        step5:'',
+      }
 
-  };
+
+
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+};
+
+componentWillMount(){
+
+  this.setState({
+    email:this.props.email
+  });
 }
+
+
+
+
 
   handleInputChange = event => {
       // Destructure the name and value properties off of event.target
       // Update the appropriate state
       const { name, value } = event.target;
+
+
       this.setState({
-        [name]: value
+          [name]: value
       });
     };
     handleFormSubmit = event => {
@@ -32,40 +59,46 @@ class skillPage extends React.Component {
       event.preventDefault();
 
 
-console.log(this.state.skill)
-console.log(this.state.goal)
+      this.props.callApi(event, this.state)
+
 
     };
 
+    // {this.props.skill ? (
+    //
+    //   <h1> H1 </h1>
+    //
+    // ) : (
 
 
 render(){
-{this.props.skill != undefined ?(
 
-console.log(this.props.skill)
+  return(
+    <div>
 
-):(
-
-console.log("no skill filled")
-
-)}
-
-console.log(this.props.name)
-console.log(this.props.email)
-console.log(this.props.password)
-console.log(this.props.skill)
+    {this.props.goal === "" ? (
+      <div>
+<YourPage/>
+      </div>
 
 
-  return (
+    ) : (
 
-<Skillform/>
 
-  );
-}
+      <Skillform
+      onSubmit={this.handleFormSubmit}
+      onChange={this.handleInputChange}
+      errors={this.state.errors}
+      user={this.state}
+      />
+
+                )}
+                  </div>
+
+                )}
+
 
 };
-
-
 
 const mapStateToProps = (state) =>({
 
@@ -75,7 +108,11 @@ email:state.user.email,
 password:state.user.password,
 skill:state.user.skill,
 goal:state.user.goal,
-steps:state.user.skills
+step1:state.user.step1,
+step2:state.user.step2,
+step3:state.user.step3,
+step4:state.user.step4,
+step5:state.user.step5,
 
 
 
@@ -83,4 +120,23 @@ steps:state.user.skills
 
 
 
-export default connect(mapStateToProps)(skillPage);
+const mapDispatchToProps = (dispatch) => ({
+  callApi: (value, state) => {
+console.log(state)
+    API.saveSkills(state)
+    .then(function(res){
+
+      console.log("after api")
+      console.log(res)
+
+      dispatch(updateUser(res))
+
+    })
+  }
+
+
+})
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(skillPage);

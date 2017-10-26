@@ -26,11 +26,31 @@ console.log(req.body)
 router.post("/checkClient", function(req, res) {
   console.log(req.body)
   db.Client
-    .find({ email: req.body.email })
+    .findOne({ email: req.body.email })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 
 })
+
+router.post("/addClientSkill", function(req, res) {
+  //
+  // var body = {
+  //   skill: req.body.skill,
+  //   goal: req.body.goal,
+  //   step1: req.body.step1,
+  //   step2:req.body.step2,
+  //   step3: req.body.step3,
+  //   step4: req.body.step4,
+  //   step5: req.body.step5
+  // }
+
+  db.Client
+    .findOneAndUpdate({ email: "michaeljohnmegarbane@gmail.com" },req.body,{returnNewDocument:true})
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+
+})
+
 
 
 

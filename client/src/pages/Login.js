@@ -42,7 +42,7 @@ testFunc(){
 
   processForm(event) {
 
-
+// window.location = "/userSkill"
 
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
@@ -90,11 +90,11 @@ const mapDispatchToProps = (dispatch) => ({
     API.checkClient(state.user)
     .then(function(res){
 
-
-      if(res.data.length > 0)
+console.log(res)
+      if(res.data)
       {
         console.log("user Found")
-        if(res.data[0].password === password)
+        if(res.data.password === password)
         {
           console.log("password approved")
           dispatch(updateUser(res))
@@ -110,11 +110,7 @@ const mapDispatchToProps = (dispatch) => ({
     })
   }
 })
-// function mapStateToProps(state){
-// email:
-//
-//
-// }
+
 
 
 export default connect(null, mapDispatchToProps)(LoginPage);
