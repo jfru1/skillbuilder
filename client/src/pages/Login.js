@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import { updateUser } from '../actions/index';
 import {withRouter} from "react-router-dom";
-
+import history from '../history.js'
 
 class LoginPage extends React.Component {
 
@@ -26,14 +26,9 @@ class LoginPage extends React.Component {
 
     this.processForm = this.processForm.bind(this);
     this.changeUser = this.changeUser.bind(this);
-    this.testFunc = this.testFunc.bind(this);
   }
 
 
-testFunc(){
-  this.props.history.push("/userSkill");
-
-}
 
 
 
@@ -42,7 +37,6 @@ testFunc(){
 
   processForm(event) {
 
-// window.location = "/userSkill"
 
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
@@ -98,10 +92,12 @@ console.log(res)
         {
           console.log("password approved")
           dispatch(updateUser(res))
+          history.push('/userSkill')
 
         }
         else {
           console.log("Wrong pass")
+
         }
       }
       else {
@@ -113,4 +109,4 @@ console.log(res)
 
 
 
-export default connect(null, mapDispatchToProps)(LoginPage);
+export default withRouter(connect(null, mapDispatchToProps)(LoginPage));

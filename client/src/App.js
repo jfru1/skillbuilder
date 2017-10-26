@@ -9,13 +9,13 @@ import LoginPage from "./pages/Login.js"
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js"
 import Wrapper from "./components/Wrapper/Wrapper.js"
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
-
+import history from "./history"
 
 const App = () =>
 
-  <Router>
+  <Router history={history} >
     <div>
       <Navbar />
 
