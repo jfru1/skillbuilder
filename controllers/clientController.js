@@ -33,19 +33,19 @@ router.post("/checkClient", function(req, res) {
 })
 
 router.post("/addClientSkill", function(req, res) {
-  //
-  // var body = {
-  //   skill: req.body.skill,
-  //   goal: req.body.goal,
-  //   step1: req.body.step1,
-  //   step2:req.body.step2,
-  //   step3: req.body.step3,
-  //   step4: req.body.step4,
-  //   step5: req.body.step5
-  // }
-
+  var obj ={
+    email:req.body.email,
+    skill:req.body.skill,
+    goal:req.body.goal,
+    step1:req.body.step1,
+    step2:req.body.step2,
+    step3:req.body.step3,
+    step4:req.body.step4,
+    step5:req.body.step5,
+  }
+console.log(req.body)
   db.Client
-    .findOneAndUpdate({ email: "michaeljohnmegarbane@gmail.com" },req.body,{returnNewDocument:true})
+    .findOneAndUpdate({ email: req.body.email },obj,{new:true})
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 

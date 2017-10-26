@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../Navbar/Navbar"
 
 
 const Skillform = ({
@@ -9,6 +10,7 @@ const Skillform = ({
 }) => (
 
 <div class="container">
+<Navbar/>
     <div class="row">
       <div class="col-md-8">
        <div class="panel panel-default">

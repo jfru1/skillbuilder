@@ -24,15 +24,16 @@ export default function(state = DEFAULT_STATE, action) {
     console.log(action.payload)
 
 return {
-name:action.payload.data.name,
-email:action.payload.data.email,
-password:action.payload.data.password,
-skill:action.payload.data.goal,
-step1:action.payload.data.step1,
-step2:action.payload.data.step1,
-step3:action.payload.data.step1,
-step4:action.payload.data.step1,
-step5:action.payload.data.step1,
+name:action.payload.name,
+email:action.payload.email,
+password:action.payload.password,
+goal:action.payload.goal,
+skill:action.payload.skill,
+step1:action.payload.step1,
+step2:action.payload.step2,
+step3:action.payload.step3,
+step4:action.payload.step4,
+step5:action.payload.step5,
 
 
 
