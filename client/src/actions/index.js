@@ -4,10 +4,11 @@ import Axios from 'axios';
 
 export function updateUser(user) {
 
+console.log(user)
 
-  console.log(user)
+
   return {
-    type: updateUser,
+    type: UPDATE_USER,
     payload: user
   }
 }

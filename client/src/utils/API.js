@@ -16,6 +16,7 @@ data:clientData
 
 
   checkClient: function(client){
+
     return axios({
 method:"post",
 url:"/api/checkClient",
@@ -24,6 +25,24 @@ data:client
 
     })
   },
+
+
+saveSkills: function(clientSkill){
+
+return axios({
+  method:"post",
+  url:"/api/addClientSkill",
+  baseURL:"http://localhost:3001",
+  data:clientSkill
+
+
+
+})
+
+
+}
+
+
 
 
 };
