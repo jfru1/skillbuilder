@@ -51,6 +51,34 @@ console.log(req.body)
 
 })
 
+router.post("/addClientPost", function(req, res) {
+
+console.log(req.body.post)
+console.log(req.body.date)
+console.log(req.body.email)
+
+var body = {
+post:req.body.post,
+date:req.body.date,
+}
+
+
+db.Client
+.findOneAndUpdate({ email: req.body.email },{$push: {Posts: body}})
+.then(dbModel => res.json(dbModel))
+.catch(err => res.status(422).json(err));
+
+});
+
+
+router.post("/checkClientPost", function(req, res) {
+console.log(req.body)
+db.Client
+.find({ email: req.body.email },'Posts' ,{'Posts': { '$slice':-1}})
+.then(dbModel => res.json(dbModel))
+.catch(err => res.status(422).json(err));
+
+});
 
 
 

@@ -5,28 +5,99 @@ import { updateUser } from '../actions/index';
 import API from '../utils/API.js'
 import Skillform from '../components/Form/skillForm.js'
 import Navbar from '../components/Navbar/Navbar'
-const moment = require('moment')
+import Textbox from '../components/Textbox/Textbox'
+const momentTimeZone = require("moment-timezone")
+const moment = require("moment")
+
 
 class YourPage extends React.Component {
   constructor(props) {
     super(props);
 
-}
+    this.state = {
 
-
-
-checkTime(a){ //a is just the object in question, the post that was made.
-    var timeNow = moment();
-    var timeStamp = moment(a.created); //a.created is the stamp and can be changed to whatever it actually resolves to
-    var hoursElapsed = timeNow.diff(timeStamp, 'h');
-    if (hoursElapsed > 24){
-        // [Load up the components for entering in the new entry]
-    } else {
-        // [Load up the box, greyed out]
+      post:"",
+      date:"",
+      email:"",
+      readyToPost:true
     }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+}
+
+componentWillMount(){
+  this.setState({
+    email:this.props.email
+
+  });
+
+
+var obj ={
+email : this.props.email
+
+}
+
+API.checkPost(obj)
+.then( function(res){
+console.log(res.data[0].Posts[0].post)
+console.log(res.data[0].Posts[0].date)
+
+if (res.data.length > 0) {
+
+
+  var timeNow = moment()
+  var timeStamp = moment(res.data[0].Posts[0].date);
+  var hoursElapsed = timeNow.diff(timeStamp, 'h');
+
+}
+
+if(hoursElapsed > 24)
+{
+
+
+}
+
+console.log(timeNow)
+console.log(timeStamp)
+console.log(hoursElapsed)
+})
+
+// .tz(moment.tz.guess()).format()
+
+
+
 }
 
 
+
+
+
+
+
+
+
+  handleInputChange = event => {
+      // Destructure the name and value properties off of event.target
+      // Update the appropriate state
+      console.log("input change")
+
+      const { name, value } = event.target;
+
+      this.setState({
+          [name]: value
+      });
+    };
+
+
+    handleFormSubmit = event => {
+      // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+      event.preventDefault();
+console.log("ckicked")
+
+      this.props.callApi(event, this.state)
+
+
+    };
 
 
 render(){
@@ -44,7 +115,7 @@ render(){
             <div class="panel-heading">
               <h1 class="panel-title"><strong>My Skill is...</strong></h1>
             </div>
-            <div class="panel-body row">
+            <div class="panel -body row">
               <div class="col-md-12">
                 <div align ="center">
                 <h1>{this.props.skill}!</h1>
@@ -52,8 +123,11 @@ render(){
               </div>
               <div class="form-group">
                 <div class="col-md-8">
-                  <label for="dailylearn"><h2>Today I learned...</h2></label>
-                  <textarea class="form-control" row="2" placeholder="Sum up what you've learned in 140 characters or fewer!" maxlength="140"></textarea>
+
+                <label for="dailylearn"><h2>Today I learned...</h2></label>
+                <textarea class="form-control" name = "post" onChange = {this.handleInputChange} value={this.state.post} row="2" placeholder="Sum up what you've learned in 140 characters or fewer!" maxlength="140"></textarea>
+                <button type="submit" onClick = {this.handleFormSubmit} class="btn btn-success">Submit</button>
+
                 </div>
               </div>
             </div>
@@ -98,6 +172,11 @@ render(){
 
 };
 
+//
+// <label for="dailylearn"><h2>Today I learned...</h2></label>
+// <textarea class="form-control" name = "post" onChange = {this.handleInputChange} value={this.state.post} row="2" placeholder="Sum up what you've learned in 140 characters or fewer!" maxlength="140"></textarea>
+// <button type="submit" onClick = {this.handleFormSubmit} class="btn btn-success">Submit</button>
+
 
 
 const mapStateToProps = (state) =>({
@@ -113,10 +192,30 @@ step2:state.user.step2,
 step3:state.user.step3,
 step4:state.user.step4,
 step5:state.user.step5,
-createdAt:state.user.createdAt
+createdAt:state.user.createdAt,
 
 })
 
 
 
-export default connect(mapStateToProps)(YourPage);
+const mapDispatchToProps = (dispatch) => ({
+  callApi: (value, state) => {
+
+var obj = {
+date:moment.tz(moment.tz.guess()).format(),
+post:state.post,
+email:state.email
+}
+console.log(obj)
+
+    API.addPost(obj)
+    .then(function(res){
+console.log(res.data)
+      // dispatch(updateUser(res.data))
+
+    })
+  }
+
+
+})
+export default connect(mapStateToProps,mapDispatchToProps)(YourPage);
