@@ -40,7 +40,35 @@ return axios({
 })
 
 
-}
+},
+
+addPost: function(clientPost){
+
+return axios({
+  method:"post",
+  url:"/api/addClientPost",
+  baseURL:"http://localhost:3001",
+  data:clientPost
+
+
+})
+
+
+},
+
+checkPost: function(clientEmail){
+
+return axios({
+  method:"post",
+  url:"/api/checkClientPost",
+  baseURL:"http://localhost:3001",
+  data:clientEmail
+})
+
+
+},
+
+
 
 
 

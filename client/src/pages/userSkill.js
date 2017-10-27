@@ -128,7 +128,7 @@ const mapDispatchToProps = (dispatch) => ({
   callApi: (value, state) => {
     API.saveSkills(state)
     .then(function(res){
-
+      console.log(res.data)
       dispatch(updateUser(res.data))
 
     })
