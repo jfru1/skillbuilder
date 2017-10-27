@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar/Navbar"
+import PracticeArc from '../components/Graphs/arcReference'
+
 const About = () =>
 
 <div class="container">
@@ -45,7 +47,7 @@ const About = () =>
         </div>
         <div class="panel-body">
             <div class="thumbnail">
-              <img src="assets/images/usercurve.png" class="img-responsive" alt=""/>
+            <PracticeArc/>
             </div>
           </div>
       </div>

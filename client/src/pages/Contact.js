@@ -6,17 +6,44 @@ const Contact = () =>
   <div>
 
   <Navbar/>
-    <h1>Contact Us</h1>
-    <p>
-      Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer
-      gravida dui mauris, ut interdum nunc egestas sed. Aenean sed mollis diam.
-      Nunc aliquet risus ac finibus porta. Nam quis arcu non lectus tincidunt
-      fermentum. Suspendisse aliquet orci porta quam semper imperdiet. Praesent
-      euismod mi justo, faucibus scelerisque risus cursus in. Sed rhoncus mollis
-      diam, sit amet facilisis lectus blandit at.
 
-      contact!
-    </p>
+  <div class="container">
+     <div class="row">
+       <div class="col-md-8">
+        <div class="panel panel-default">
+           <div class="panel-heading">
+             <h1 class="panel-title"><strong>Contact</strong></h1>
+           </div>
+           <div class="panel-body pItems row">
+             <div class="col-md-12">
+               <div class="form-group">
+                 <label for="name">Name</label>
+                 <input type="email" class="form-control" placeholder="Jane Doe"/>
+               </div>
+               <div class="form-group">
+                 <label for="email">Email</label>
+                 <input type="email" class="form-control" placeholder="janedoe@protonmail.com"/>
+               </div>
+               <div class="form-group">
+                 <label for="msg">Message</label>
+                 <textarea class="form-control" rows="6"></textarea>
+               </div>
+               <div class="form-group">
+               <button type="submit" class="btn btn-success">Submit</button>
+               </div>
+             </div>
+           </div>
+        </div>
+       </div>
+
+     </div>
+   </div>
+
+
+
+
+
+
   </div>;
 
 

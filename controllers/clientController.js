@@ -60,9 +60,10 @@ post:req.body.post,
 date:req.body.date,
 }
 
+// {$set:{completed:req.body.completed}}, {multi:true}
 
 db.Client
-.findOneAndUpdate({ email: req.body.email },{$push: {Posts: body}},{$set:{completed:req.body.completed}}, {multi:true})
+.findOneAndUpdate({ email: req.body.email },{$push: {Posts: body}, $set:{completed:req.body.completed}},{new:true})
 .then(dbModel => res.json(dbModel))
 .catch(err => res.status(422).json(err));
 

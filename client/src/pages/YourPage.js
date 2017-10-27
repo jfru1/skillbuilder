@@ -29,8 +29,8 @@ class YourPage extends React.Component {
 
 componentWillMount(){
   this.setState({
-    email:this.props.email
-
+    email:this.props.email,
+    completed:this.props.completed
   });
 
 
@@ -206,11 +206,12 @@ completed:state.user.completed,
 const mapDispatchToProps = (dispatch) => ({
   callApi: (value, state) => {
 
+state.completed += .75
 var obj = {
 date:moment.tz(moment.tz.guess()).format(),
 post:state.post,
 email:state.email,
-completed:parseInt(state.completed) + 1,
+completed:(parseFloat(state.completed) + .75),
 }
 console.log(obj.completed)
 
