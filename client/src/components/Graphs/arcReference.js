@@ -2,28 +2,31 @@ import React, { Component } from 'react';
 import PracticeArc from './PracticeArc';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { updateUser } from '../actions/index';
+import { updateUser } from '../../actions/index';
 
-//this component needs to be fed a var with the total number of hours for a user
-//it should imported as hoursPracticed
-
-//var pComp = hoursPracticed/20
-
-
-class App extends Component{
+class ClientArc extends Component{
   constructor(props){
     super(props);
-    this.state = {percentComplete: pComp};
-//    this.togglePercent = this.togglePercent.bind(this);
+    this.state = {
+      hoursCompleted:"",
+      percentComplete:""
+    };
   }
 
-//  togglePercent(){
-//    const percentage = this.state.percentComplete === 0.3 ? 0.7 : 0.3;
-//    this.setState({percentComplete: percentage});
-//  }
+componentWillMount(){
+
+var perComplete = (parseInt(this.props.completed)/20)
+
+this.setState({
+percentComplete:perComplete
+
+})
+
+}
+
+
 
     render(){
-      console.log(this.state.percentComplete);
       return (
         <div>
         <PracticeArc
@@ -42,4 +45,12 @@ class App extends Component{
     }
 }
 
-export default App;
+const mapStateToProps = (state) =>({
+
+
+completed:state.user.completed,
+
+
+})
+
+export default connect(mapStateToProps)(ClientArc);
