@@ -206,7 +206,7 @@ completed:state.user.completed,
 const mapDispatchToProps = (dispatch) => ({
   callApi: (value, state) => {
 
-state.completed += .75
+
 var obj = {
 date:moment.tz(moment.tz.guess()).format(),
 post:state.post,
