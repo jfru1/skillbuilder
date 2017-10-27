@@ -6,6 +6,7 @@ import API from '../utils/API.js'
 import Skillform from '../components/Form/skillForm.js'
 import Navbar from '../components/Navbar/Navbar'
 import Textbox from '../components/Textbox/Textbox'
+import PracticeArc from '../components/Graphs/arcReference'
 const momentTimeZone = require("moment-timezone")
 const moment = require("moment")
 
@@ -138,6 +139,11 @@ render(){
             </div>
             <div class="panel-body">
                 <div class="thumbnail">
+
+
+              <PracticeArc/>
+
+
                   <img src="assets/images/usercurve.png" class="img-responsive" alt=""/>
                 </div>
               </div>
