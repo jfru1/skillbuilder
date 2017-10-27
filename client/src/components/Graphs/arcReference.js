@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PracticeArc from './PracticeArc';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { updateUser } from '../actions/index';
 
 //this component needs to be fed a var with the total number of hours for a user
 //it should imported as hoursPracticed
 
 //var pComp = hoursPracticed/20
 
-var pComp = .2
 
 class App extends Component{
   constructor(props){
@@ -24,7 +26,7 @@ class App extends Component{
       console.log(this.state.percentComplete);
       return (
         <div>
-        <PracticeArc 
+        <PracticeArc
           duration={2000}
           height={300}
           width={300}

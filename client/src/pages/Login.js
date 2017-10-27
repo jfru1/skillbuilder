@@ -84,7 +84,6 @@ const mapDispatchToProps = (dispatch) => ({
     API.checkClient(state.user)
     .then(function(res){
 
-console.log(res)
       if(res.data)
       {
         console.log("user Found")

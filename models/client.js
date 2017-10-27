@@ -20,7 +20,8 @@ step2:{type:String, required:false},
 step3:{type:String, required:false},
 step4:{type:String, required:false},
 step5:{type:String, required:false},
-Posts:{type:Array, required:false}
+Posts:{type:Array, required:false},
+completed:{type:String, required:true, default:0}
 
 });
 

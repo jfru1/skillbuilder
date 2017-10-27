@@ -19,7 +19,8 @@ class YourPage extends React.Component {
       post:"",
       date:"",
       email:"",
-      readyToPost:true
+      readyToPost:true,
+      completed:0
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -39,27 +40,26 @@ email : this.props.email
 
 API.checkPost(obj)
 .then( function(res){
-console.log(res.data[0].Posts[0].post)
-console.log(res.data[0].Posts[0].date)
 
-if (res.data.length > 0) {
+if (res.data[0].Posts.length > 0) {
 
 
   var timeNow = moment()
   var timeStamp = moment(res.data[0].Posts[0].date);
   var hoursElapsed = timeNow.diff(timeStamp, 'h');
 
+  if(hoursElapsed > 24)
+  {
+
+
+  }
+
+  console.log(timeNow)
+  console.log(timeStamp)
+  console.log(hoursElapsed)
 }
 
-if(hoursElapsed > 24)
-{
 
-
-}
-
-console.log(timeNow)
-console.log(timeStamp)
-console.log(hoursElapsed)
 })
 
 // .tz(moment.tz.guess()).format()
@@ -79,7 +79,6 @@ console.log(hoursElapsed)
   handleInputChange = event => {
       // Destructure the name and value properties off of event.target
       // Update the appropriate state
-      console.log("input change")
 
       const { name, value } = event.target;
 
@@ -92,7 +91,6 @@ console.log(hoursElapsed)
     handleFormSubmit = event => {
       // When the form is submitted, prevent its default behavior, get recipes update the recipes state
       event.preventDefault();
-console.log("ckicked")
 
       this.props.callApi(event, this.state)
 
@@ -193,6 +191,7 @@ step3:state.user.step3,
 step4:state.user.step4,
 step5:state.user.step5,
 createdAt:state.user.createdAt,
+completed:state.user.completed,
 
 })
 
@@ -204,14 +203,14 @@ const mapDispatchToProps = (dispatch) => ({
 var obj = {
 date:moment.tz(moment.tz.guess()).format(),
 post:state.post,
-email:state.email
+email:state.email,
+completed:parseInt(state.completed) + 1,
 }
-console.log(obj)
+console.log(obj.completed)
 
     API.addPost(obj)
     .then(function(res){
-console.log(res.data)
-      // dispatch(updateUser(res.data))
+      dispatch(updateUser(res.data))
 
     })
   }
