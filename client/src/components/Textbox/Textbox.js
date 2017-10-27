@@ -5,7 +5,6 @@ const Textbox = props =>
 <div>
   <textArea
     value={props.value}
-    name="post"
     onChange={props.onChange}
     type="textArea"
     placeholder="Sum up what you've learned in 140 characters or fewer!"

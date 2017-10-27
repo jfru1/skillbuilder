@@ -11,7 +11,8 @@ step2:"",
 step3:"",
 step4:"",
 step5:"",
-posts:[]
+posts:[],
+completed:0
 
 }
 
@@ -37,6 +38,7 @@ step2:action.payload.step2,
 step3:action.payload.step3,
 step4:action.payload.step4,
 step5:action.payload.step5,
+completed:action.payload.completed,
 
 }
 
