@@ -7,6 +7,7 @@ const Textbox = props =>
     value={props.value}
     onChange={props.onChange}
     type="textArea"
+    name = "testVar"
     placeholder="Sum up what you've learned in 140 characters or fewer!"
     maxlength ="140"
   />

@@ -21,7 +21,9 @@ class YourPage extends React.Component {
       date:"",
       email:"",
       readyToPost:true,
-      completed:0
+      completed:0,
+      testVar:"",
+
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -81,6 +83,7 @@ if (res.data[0].Posts.length > 0) {
       // Destructure the name and value properties off of event.target
       // Update the appropriate state
 
+      console.log("typed a letter")
       const { name, value } = event.target;
 
       this.setState({
@@ -93,7 +96,9 @@ if (res.data[0].Posts.length > 0) {
       // When the form is submitted, prevent its default behavior, get recipes update the recipes state
       event.preventDefault();
 
-      this.props.callApi(event, this.state)
+      console.log(this.state.testVar)
+
+      // this.props.callApi(event, this.state)
 
 
     };
@@ -123,9 +128,13 @@ render(){
               <div class="form-group">
                 <div class="col-md-8">
 
-                <label for="dailylearn"><h2>Today I learned...</h2></label>
-                <textarea class="form-control" name = "post" onChange = {this.handleInputChange} value={this.state.post} row="2" placeholder="Sum up what you've learned in 140 characters or fewer!" maxlength="140"></textarea>
-                <button type="submit" onClick = {this.handleFormSubmit} class="btn btn-success">Submit</button>
+
+                <Textbox>
+                onClick = {this.handleFormSubmit}
+                onChange = {this.handleInputChange}
+                value = {this.testVar}
+                </Textbox>
+
 
                 </div>
               </div>
@@ -176,12 +185,10 @@ render(){
 
 };
 
-//
 // <label for="dailylearn"><h2>Today I learned...</h2></label>
 // <textarea class="form-control" name = "post" onChange = {this.handleInputChange} value={this.state.post} row="2" placeholder="Sum up what you've learned in 140 characters or fewer!" maxlength="140"></textarea>
 // <button type="submit" onClick = {this.handleFormSubmit} class="btn btn-success">Submit</button>
-
-
+//
 
 const mapStateToProps = (state) =>({
 
