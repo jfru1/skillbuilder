@@ -14,18 +14,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mmegarba/NYT-REACT.git"
+    "url": "git+https://github.com/jfru1/skillbuilder.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mmegarba/NYT-REACT/issues"
+    "url": "https://github.com/jfru1/skillbuilder/issues"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
     "nodemon": "^1.11.0"
   },
-  "homepage": "https://github.com/mmegarba/NYT-REACT#readme",
+  "homepage": "https://github.com/jfru1/skillbuilder#readme",
   "dependencies": {
     "axios": "^0.16.2",
     "cors": "^2.8.4",
