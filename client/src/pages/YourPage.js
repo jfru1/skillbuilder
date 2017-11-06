@@ -22,7 +22,7 @@ class YourPage extends React.Component {
       email:"",
       readyToPost:true,
       completed:0,
-      testVar:"",
+
 
     }
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -75,10 +75,6 @@ if (res.data[0].Posts.length > 0) {
 
 
 
-
-
-
-
   handleInputChange = event => {
       // Destructure the name and value properties off of event.target
       // Update the appropriate state
@@ -96,9 +92,8 @@ if (res.data[0].Posts.length > 0) {
       // When the form is submitted, prevent its default behavior, get recipes update the recipes state
       event.preventDefault();
 
-      console.log(this.state.testVar)
-
-      // this.props.callApi(event, this.state)
+      console.log("clicked")
+      this.props.callApi(event, this.state)
 
 
     };
@@ -129,11 +124,9 @@ render(){
                 <div class="col-md-8">
 
 
-                <Textbox>
-                onClick = {this.handleFormSubmit}
-                onChange = {this.handleInputChange}
-                value = {this.testVar}
-                </Textbox>
+                <label for="dailylearn"><h2>Today I learned...</h2></label>
+                <textarea class="form-control" name = "post" onChange = {this.handleInputChange} value={this.state.post} row="2" placeholder="Sum up what you've learned in 140 characters or fewer!" maxlength="140"></textarea>
+                <button type="submit" onClick = {this.handleFormSubmit} class="btn btn-success">Submit</button>
 
 
                 </div>
@@ -185,11 +178,13 @@ render(){
 
 };
 
-// <label for="dailylearn"><h2>Today I learned...</h2></label>
-// <textarea class="form-control" name = "post" onChange = {this.handleInputChange} value={this.state.post} row="2" placeholder="Sum up what you've learned in 140 characters or fewer!" maxlength="140"></textarea>
-// <button type="submit" onClick = {this.handleFormSubmit} class="btn btn-success">Submit</button>
-//
 
+// <Textbox>
+// handleFormSubmit = {this.handleFormSubmit}
+// handleInputChange = {this.handleInputChange}
+// value = {this.state.post}
+// name = "post"
+// </Textbox>
 const mapStateToProps = (state) =>({
 
 

@@ -16,7 +16,8 @@ const About = () =>
         <div class="panel-body row">
           <div class="col-md-3">
             <div class="thumbnail">
-              <img src={'http://itknowledgeexchange.techtarget.com/writing-for-business/files/2016/11/learning-curve.png'} class="img-responsive" alt=""/>
+
+              <img src="http://itknowledgeexchange.techtarget.com/writing-for-business/files/2016/11/learning-curve.png" class="img-responsive" alt=""/>
             </div>
           </div>
           <div class="col-md-9">
