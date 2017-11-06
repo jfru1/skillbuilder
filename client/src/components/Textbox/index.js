@@ -1,1 +1,1 @@
-export { default } from "./Texbox";
+export { default } from "./Textbox";
