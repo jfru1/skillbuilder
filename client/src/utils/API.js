@@ -1,5 +1,5 @@
 import axios from "axios";
-
+var express = require('express')
 
 export default {
 
@@ -8,7 +8,7 @@ export default {
     return axios({
 method:"post",
 url:"/api/saveClient",
-baseURL:"",
+baseURL:process.env.AXIOS_API,
 data:clientData
     })
 
@@ -20,7 +20,7 @@ data:clientData
     return axios({
 method:"post",
 url:"/api/checkClient",
-baseURL:"",
+baseURL:process.env.AXIOS_API,
 data:client
 
     })
@@ -32,7 +32,7 @@ saveSkills: function(clientSkill){
 return axios({
   method:"post",
   url:"/api/addClientSkill",
-  baseURL:"",
+  baseURL:process.env.AXIOS_API,
   data:clientSkill
 
 
@@ -47,7 +47,7 @@ addPost: function(clientPost){
 return axios({
   method:"post",
   url:"/api/addClientPost",
-  baseURL:"",
+  baseURL:process.env.AXIOS_API,
   data:clientPost
 
 
@@ -61,7 +61,7 @@ checkPost: function(clientEmail){
 return axios({
   method:"post",
   url:"/api/checkClientPost",
-  baseURL:"",
+  baseURL:process.env.AXIOS_API,
   data:clientEmail
 })
 
