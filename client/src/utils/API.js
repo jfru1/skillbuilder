@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.baseURL = 'https://gentle-wave-45898.herokuapp.com';
 
 export default {
 
