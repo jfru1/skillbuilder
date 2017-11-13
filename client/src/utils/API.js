@@ -6,8 +6,7 @@ export default {
   saveClient: function(clientData) {
     return axios({
 method:"post",
-url:"/api/saveClient",
-baseURl:"https://gentle-wave-45898.herokuapp.com",
+url:"https://gentle-wave-45898.herokuapp.com/api/saveClient",
 data:clientData
     })
 
