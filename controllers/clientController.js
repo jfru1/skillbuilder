@@ -8,7 +8,7 @@ const db = require("../models");
   router.get("/test", function(req, res) {
 
 console.log("hello")
-res.JSON("hello")
+res.json("hello")
 
 })
 

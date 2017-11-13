@@ -1,5 +1,4 @@
 import axios from "axios";
-var express = require('express')
 
 export default {
 
