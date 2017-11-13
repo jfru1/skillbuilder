@@ -7,7 +7,6 @@ export default {
     return axios({
 method:"post",
 url:"/api/saveClient",
-baseURL: process.env.AXIOS_API,
 data:clientData
     })
 
@@ -19,7 +18,6 @@ data:clientData
     return axios({
 method:"post",
 url:"/api/checkClient",
-baseURL: process.env.AXIOS_API,
 data:client
 
     })
