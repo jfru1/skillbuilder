@@ -1,5 +1,4 @@
 import axios from "axios";
-axios.defaults.baseURL = 'https://gentle-wave-45898.herokuapp.com';
 
 export default {
 
@@ -8,7 +7,7 @@ export default {
     return axios({
 method:"post",
 url:"/api/saveClient",
-baseURL: 'https://gentle-wave-45898.herokuapp.com',
+baseURL: process.env.AXIOS_API,
 data:clientData
     })
 
@@ -20,7 +19,7 @@ data:clientData
     return axios({
 method:"post",
 url:"/api/checkClient",
-baseURL: "https://gentle-wave-45898.herokuapp.com",
+baseURL: process.env.AXIOS_API,
 data:client
 
     })
