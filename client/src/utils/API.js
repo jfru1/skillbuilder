@@ -1,5 +1,15 @@
 import axios from "axios";
-axios.defaults.baseURL = 'https://gentle-wave-45898.herokuapp.com';
+
+
+
+const firstAPI = axios.create({
+
+  baseURL: "https://gentle-wave-45898.herokuapp.com"
+})
+
+
+
+
 
 export default {
 
@@ -8,6 +18,7 @@ export default {
     return axios({
 method:"post",
 url:"/api/saveClient",
+ba
 data:clientData
     })
 
@@ -16,7 +27,7 @@ data:clientData
 
   checkClient: function(client){
 
-    return axios({
+    return firstAPI({
 method:"post",
 url:"/api/checkClient",
 data:client
