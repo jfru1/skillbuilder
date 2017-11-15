@@ -5,7 +5,6 @@ export default {
 
 
   saveClient: function(clientData) {
-    console.log("api hit")
     return axios({
 method:"post",
 url:"/api/saveClient",
