@@ -1,12 +1,11 @@
-var client = require('./AxiosMod');
-
+import axios from "axios";
 
 
 export default {
 
 
   saveClient: function(clientData) {
-    return client({
+    return axios({
 method:"post",
 url:"/api/saveClient",
 data:clientData
@@ -17,21 +16,18 @@ data:clientData
 
   checkClient: function(client){
 
-//     return client({
-// method:"post",
-// url:"/api/checkClient",
-// data:client
-//
-//     })
+    return axios({
+method:"post",
+url:"/api/checkClient",
+data:client
 
-// client.get('/api/test')
-
+    })
   },
 
 
 saveSkills: function(clientSkill){
 
-return client({
+return axios({
   method:"post",
   url:"/api/addClientSkill",
   data:clientSkill
@@ -45,7 +41,7 @@ return client({
 
 addPost: function(clientPost){
 
-return client({
+return axios({
   method:"post",
   url:"/api/addClientPost",
   data:clientPost
@@ -58,7 +54,7 @@ return client({
 
 checkPost: function(clientEmail){
 
-return client({
+return axios({
   method:"post",
   url:"/api/checkClientPost",
   data:clientEmail
