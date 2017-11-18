@@ -1,13 +1,4 @@
-import axios from "axios";
-
-
-
-const firstAPI = axios.create({
-
-  baseURL: "https://gentle-wave-45898.herokuapp.com"
-})
-
-
+var client = require('./AxiosMod');
 
 
 
@@ -15,7 +6,7 @@ export default {
 
 
   saveClient: function(clientData) {
-    return axios({
+    return client({
 method:"post",
 url:"/api/saveClient",
 data:clientData
@@ -26,7 +17,7 @@ data:clientData
 
   checkClient: function(client){
 
-    return firstAPI({
+    return client({
 method:"post",
 url:"/api/checkClient",
 data:client
@@ -37,7 +28,7 @@ data:client
 
 saveSkills: function(clientSkill){
 
-return axios({
+return client({
   method:"post",
   url:"/api/addClientSkill",
   data:clientSkill
@@ -51,7 +42,7 @@ return axios({
 
 addPost: function(clientPost){
 
-return axios({
+return client({
   method:"post",
   url:"/api/addClientPost",
   data:clientPost
@@ -64,7 +55,7 @@ return axios({
 
 checkPost: function(clientEmail){
 
-return axios({
+return client({
   method:"post",
   url:"/api/checkClientPost",
   data:clientEmail
