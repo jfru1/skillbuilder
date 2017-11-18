@@ -17,12 +17,15 @@ data:clientData
 
   checkClient: function(client){
 
-    return client({
-method:"post",
-url:"/api/checkClient",
-data:client
+//     return client({
+// method:"post",
+// url:"/api/checkClient",
+// data:client
+//
+//     })
 
-    })
+client.get('/api/test')
+
   },
 
 
