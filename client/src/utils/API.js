@@ -24,7 +24,7 @@ data:clientData
 //
 //     })
 
-client.get('/api/test')
+// client.get('/api/test')
 
   },
 
