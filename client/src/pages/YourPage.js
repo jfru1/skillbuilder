@@ -29,6 +29,13 @@ class YourPage extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
 }
 
+
+componentWillRecieveProps(){
+
+  this.forceUpdate();
+}
+
+
 componentWillMount(){
   this.setState({
     email:this.props.email,
@@ -91,6 +98,7 @@ if (res.data[0].Posts.length > 0) {
     handleFormSubmit = event => {
       // When the form is submitted, prevent its default behavior, get recipes update the recipes state
       event.preventDefault();
+
 
       console.log("clicked")
       this.props.callApi(event, this.state)
