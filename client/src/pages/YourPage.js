@@ -50,7 +50,7 @@ email : this.props.email
 
 API.checkPost(obj)
 .then( function(res){
-
+  console.log(res.data[0])
 if (res.data[0].Posts.length > 0) {
 
 

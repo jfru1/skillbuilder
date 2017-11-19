@@ -15,6 +15,14 @@ class App extends Component{
 //    this.togglePercent = this.togglePercent.bind(this);
   }
 
+
+  componentWillRecieveProps(){
+
+    this.forceUpdate();
+  }
+
+  
+
 //  togglePercent(){
 //    const percentage = this.state.percentComplete === 0.3 ? 0.7 : 0.3;
 //    this.setState({percentComplete: percentage});
@@ -24,7 +32,7 @@ class App extends Component{
       console.log(this.state.percentComplete);
       return (
         <div>
-        <PracticeArc 
+        <PracticeArc
           duration={2000}
           height={300}
           width={300}
