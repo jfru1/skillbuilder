@@ -16,12 +16,9 @@ class App extends Component{
   }
 
 
-  componentWillRecieveProps(){
 
-    this.forceUpdate();
-  }
 
-  
+
 
 //  togglePercent(){
 //    const percentage = this.state.percentComplete === 0.3 ? 0.7 : 0.3;

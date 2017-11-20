@@ -7,6 +7,7 @@ import Skillform from '../components/Form/skillForm.js'
 import Navbar from '../components/Navbar/Navbar'
 import Textbox from '../components/Textbox/Textbox'
 import PracticeArc from '../components/Graphs/arcReference'
+
 const momentTimeZone = require("moment-timezone")
 const moment = require("moment")
 
@@ -20,8 +21,10 @@ class YourPage extends React.Component {
       post:"",
       date:"",
       email:"",
-      readyToPost:true,
       completed:0,
+      posted:true,
+      timeSincePost:"",
+      lastPost:""
 
 
     }
@@ -29,10 +32,9 @@ class YourPage extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
 }
 
-
 componentWillRecieveProps(){
 
-  this.forceUpdate();
+console.log("recieved new!!!")
 }
 
 
@@ -49,30 +51,50 @@ email : this.props.email
 }
 
 API.checkPost(obj)
+
 .then( function(res){
-  console.log(res.data[0])
+  console.log(res.data[0].Posts[(res.data[0].Posts.length-1)])
 if (res.data[0].Posts.length > 0) {
 
+  var timeNow = moment.tz(moment.tz.guess()).format()
+  var timeNow1 = moment(timeNow)
+  var timeStamp = moment(res.data[0].Posts[(res.data[0].Posts.length-1)].date);
+  var hoursElapsed = timeNow1.diff(timeStamp, 'h');
 
-  var timeNow = moment()
-  var timeStamp = moment(res.data[0].Posts[0].date);
-  var hoursElapsed = timeNow.diff(timeStamp, 'h');
+  this.setState({
+    timeSincePost:hoursElapsed,
+    lastPost:res.data[0].Posts[(res.data[0].Posts.length-1)].post
+  });
 
+
+
+  //
   if(hoursElapsed > 24)
   {
+
+    this.setState({
+      posted:false
+    });
 
 
   }
 
   console.log(timeNow)
-  console.log(timeStamp)
+  // console.log(timeStamp)
   console.log(hoursElapsed)
 }
 
+else{
+  this.setState({
+    posted:false
+  });
 
-})
+}
 
-// .tz(moment.tz.guess()).format()
+
+
+}.bind(this))
+
 
 
 
@@ -98,7 +120,6 @@ if (res.data[0].Posts.length > 0) {
     handleFormSubmit = event => {
       // When the form is submitted, prevent its default behavior, get recipes update the recipes state
       event.preventDefault();
-
 
       console.log("clicked")
       this.props.callApi(event, this.state)
@@ -131,10 +152,32 @@ render(){
               <div class="form-group">
                 <div class="col-md-8">
 
+                <div>
 
+                  {
+
+                    (this.state.posted === false) ?
+
+                    <div>
                 <label for="dailylearn"><h2>Today I learned...</h2></label>
                 <textarea class="form-control" name = "post" onChange = {this.handleInputChange} value={this.state.post} row="2" placeholder="Sum up what you've learned in 140 characters or fewer!" maxlength="140"></textarea>
                 <button type="submit" onClick = {this.handleFormSubmit} class="btn btn-success">Submit</button>
+                  </div>
+                  :
+                  <div>
+                  You have already posted for today!
+
+
+                  Hours left till next post : {parseInt(24- this.state.timeSincePost)} hr(s)
+                  <div>
+                  Your Last Post:
+                  <h3>{this.state.lastPost}</h3>
+                  </div>
+
+                  </div>
+              }
+
+                </div>
 
 
                 </div>
@@ -223,15 +266,12 @@ post:state.post,
 email:state.email,
 completed:(parseFloat(state.completed) + .75),
 }
-console.log(obj.completed)
 
     API.addPost(obj)
     .then(function(res){
       dispatch(updateUser(res.data))
-
     })
   }
-
 
 })
 export default connect(mapStateToProps,mapDispatchToProps)(YourPage);
