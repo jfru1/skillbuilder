@@ -13,7 +13,15 @@ const LoginForm = ({
   user,
 }) => (
 
+
+
+
+
   <MuiThemeProvider>
+
+<h1 className ="brand">SkillBuilder</h1>
+
+
   <Card className="container">
     <form action="/userSkill" onSubmit={onSubmit}>
       <h2 className="card-heading">Login</h2>
