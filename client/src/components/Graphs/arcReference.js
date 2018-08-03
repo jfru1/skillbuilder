@@ -13,6 +13,21 @@ class ClientArc extends Component{
     };
   }
 
+
+
+componentWillRecieveProps(){
+  var perComplete = (parseFloat(this.props.completed)/20)
+
+  this.setState({
+  percentComplete:perComplete
+
+  })
+
+
+}
+
+
+
 componentWillMount(){
 
 var perComplete = (parseFloat(this.props.completed)/20)
