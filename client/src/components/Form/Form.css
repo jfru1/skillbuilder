@@ -8,3 +8,34 @@
   margin-bottom: 5px;
   width: 100%;
 }
+
+.container{
+
+text-align:center !important;
+margin-top: 100px !important;
+background: #E5E5E5 !important;
+width: 40% !important;
+
+
+}
+
+
+.brand{
+
+margin-left:25px;
+
+
+}
+
+.field-line{
+
+color:black !important;
+
+
+}
+
+
+.label{
+
+  color:black !important;
+}

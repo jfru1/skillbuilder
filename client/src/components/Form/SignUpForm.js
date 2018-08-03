@@ -4,7 +4,7 @@ import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import "./Form.css";
 
 const SignUpForm = ({
   onSubmit,
