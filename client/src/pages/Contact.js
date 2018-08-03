@@ -7,7 +7,7 @@ const Contact = () =>
 
   <Navbar/>
 
-  <div class="container">
+  <div class="containers">
      <div class="row">
        <div class="col-md-8">
         <div class="panel panel-default">

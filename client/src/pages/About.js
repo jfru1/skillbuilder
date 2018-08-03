@@ -4,7 +4,7 @@ import PracticeArc from '../components/Graphs/arcReference'
 
 const About = () =>
 
-<div class="container">
+<div class="containers">
 
 <Navbar/>
   <div class="row">
