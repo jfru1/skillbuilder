@@ -32,10 +32,6 @@ class YourPage extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
 }
 
-componentWillRecieveProps(){
-
-console.log("recieved new!!!")
-}
 
 
 componentWillMount(){
@@ -121,7 +117,6 @@ else{
       // When the form is submitted, prevent its default behavior, get recipes update the recipes state
       event.preventDefault();
 
-      console.log("clicked")
       this.props.callApi(event, this.state)
 
 
@@ -133,7 +128,7 @@ render(){
   return (
 
 
-    <div class="container">
+    <div class="containers">
 
     <Navbar/>
 
