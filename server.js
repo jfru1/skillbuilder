@@ -16,11 +16,6 @@ var validatorRoutes = require("./controllers/validatorRoutes.js")
 app.use("auth",validatorRoutes)
 app.use("/api", apiRoutes);
 
-app.get('/*', function(req, res) {
-  res.send('root')
-
-  })
-})
 
 
 mongoose.Promise = global.Promise;
