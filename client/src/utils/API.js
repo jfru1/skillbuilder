@@ -8,7 +8,7 @@ export default {
   saveClient: function(clientData) {
     return axios({
 method:"post",
-url:"api/saveClient",
+url:"/api/saveClient",
 data:clientData
     })
 
@@ -19,7 +19,7 @@ data:clientData
 
     return axios({
 method:"post",
-url:"api/checkClient",
+url:"/api/checkClient",
 data:client
 
     })
@@ -30,7 +30,7 @@ saveSkills: function(clientSkill){
 
 return axios({
   method:"post",
-  url:"api/addClientSkill",
+  url:"/api/addClientSkill",
   data:clientSkill
 
 
@@ -44,7 +44,7 @@ addPost: function(clientPost){
 
 return axios({
   method:"post",
-  url:"api/addClientPost",
+  url:"/api/addClientPost",
   data:clientPost
 
 
@@ -57,7 +57,7 @@ checkPost: function(clientEmail){
 
 return axios({
   method:"post",
-  url:"api/checkClientPost",
+  url:"/api/checkClientPost",
   data:clientEmail
 })
 
