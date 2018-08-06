@@ -19,9 +19,9 @@ app.use("/api", apiRoutes);
 
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, "index.html"), function(err) {
+  res.send(path.join(__dirname, "index.html"), function(err) {
     if (err) {
-      
+      alert("ALERT")
       res.status(500).send(err)
     }
   })
