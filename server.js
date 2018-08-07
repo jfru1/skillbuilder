@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const cors = require("cors")
 const path = require("path")
-const targetBaseUrl = '';
+const targetBaseUrl = 'https://gentle-wave-45898.herokuapp.com/';
 
 app.use(cors())
 // Configure body parser for AJAX requests
