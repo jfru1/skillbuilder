@@ -21,7 +21,7 @@ app.use("/api", apiRoutes);
 
 app.get('/*', function(req, res) {
   res.send(path.join(__dirname, "client/public/index.html"), function(err) {
-  
+
   })
 })
 
