@@ -26,7 +26,16 @@ export default function(state = DEFAULT_STATE, action) {
 
     console.log(action.payload)
 
-return  Object.assign({}, state, {
+var obj = {
+createdAt:action.payload.createdAt,
+name:action
+
+
+}
+
+
+
+return  Object.assign({}, ...state, {
 
 createdAt:action.payload.createdAt,
 name:action.payload.name,
