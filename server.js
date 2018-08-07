@@ -5,6 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const cors = require("cors")
 const path = require("path")
+const targetBaseUrl = 'https://gentle-wave-45898.herokuapp.com/';
+
 app.use(cors())
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,15 +21,20 @@ var validatorRoutes = require("./controllers/validatorRoutes.js")
 app.use("auth",validatorRoutes)
 app.use("/api", apiRoutes);
 
+// 
+// app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+// });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
 
 
-// if (err) {
-//   res.status(500).send(err)
-// }
+function handleRedirect(req, res) {
+  const targetUrl = targetBaseUrl;
+  res.redirect(targetUrl);
+}
+
+app.get('*', handleRedirect);
+
 
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
