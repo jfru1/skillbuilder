@@ -20,15 +20,15 @@ app.use("/api", apiRoutes);
 
 
 app.get('/*', function(req, res) {
-  res.send(path.join(__dirname, "index.html"), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
+  res.send(path.join(__dirname, "client/public/index.html"), function(err) {
+  
   })
 })
 
 
-
+// if (err) {
+//   res.status(500).send(err)
+// }
 
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
