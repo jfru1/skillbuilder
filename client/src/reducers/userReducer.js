@@ -24,7 +24,9 @@ export default function(state = DEFAULT_STATE, action) {
   switch (action.type) {
     case UPDATE_USER:
 
-    console.log(action.payload)
+[
+  
+...state,
 
 return {
 createdAt:action.payload.createdAt,
@@ -42,33 +44,8 @@ completed:action.payload.completed,
 
 }
 
+]
 
-// case ADD_POST:
-//
-// let newList = [...state.posts];
-//
-// if(action.payload !==){
-//   newList.push({post:`${action.payload}`,completed:false});
-//
-// }
-//
-// console.log(action.payload)
-//
-// return {
-// createdAt:action.payload.createdAt,
-// name:action.payload.name,
-// email:action.payload.email,
-// password:action.payload.password,
-// goal:action.payload.goal,
-// skill:action.payload.skill,
-// step1:action.payload.step1,
-// step2:action.payload.step2,
-// step3:action.payload.step3,
-// step4:action.payload.step4,
-// step5:action.payload.step5,
-// posts:action.payload.
-//
-// }
 
     case 'HANDLE_ERROR':
       console.log('ERROR OCCURRED IN PROMISE');
