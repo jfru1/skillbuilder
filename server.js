@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const cors = require("cors")
+const path = require("path")
 app.use(cors())
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,7 +22,6 @@ app.use("/api", apiRoutes);
 app.get('/*', function(req, res) {
   res.send(path.join(__dirname, "index.html"), function(err) {
     if (err) {
-      alert("ALERT")
       res.status(500).send(err)
     }
   })
