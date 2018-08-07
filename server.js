@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("client/build"));
+app.use('*', express.static("client/build"));
+
 
 var apiRoutes = require("./controllers/clientController.js");
 var validatorRoutes = require("./controllers/validatorRoutes.js")
@@ -18,12 +20,9 @@ app.use("auth",validatorRoutes)
 app.use("/api", apiRoutes);
 
 
-
-app.get('/*', function(req, res) {
-  res.send(path.join(__dirname, "client/public/index.html"), function(err) {
-
-  })
-})
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
 
 // if (err) {
