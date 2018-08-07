@@ -24,11 +24,10 @@ export default function(state = DEFAULT_STATE, action) {
   switch (action.type) {
     case UPDATE_USER:
 
-[
-  
-...state,
+    console.log(action.payload)
 
-return {
+return  Object.assign({}, state {
+
 createdAt:action.payload.createdAt,
 name:action.payload.name,
 email:action.payload.email,
@@ -42,9 +41,9 @@ step4:action.payload.step4,
 step5:action.payload.step5,
 completed:action.payload.completed,
 
-}
+});
 
-]
+
 
 
     case 'HANDLE_ERROR':
