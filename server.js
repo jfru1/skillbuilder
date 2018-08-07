@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const cors = require("cors")
 const path = require("path")
-const targetBaseUrl = 'https://gentle-wave-45898.herokuapp.com/';
+const targetBaseUrl = '';
 
 app.use(cors())
 // Configure body parser for AJAX requests
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("client/build"));
-app.use('*', express.static("client/build"));
+// app.use('*', express.static("client/build"));
 
 
 var apiRoutes = require("./controllers/clientController.js");
@@ -21,9 +21,9 @@ var validatorRoutes = require("./controllers/validatorRoutes.js")
 app.use("auth",validatorRoutes)
 app.use("/api", apiRoutes);
 
-// 
+//
 // app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//     res.send(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
 
 
