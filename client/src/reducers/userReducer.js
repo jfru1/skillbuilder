@@ -1,5 +1,6 @@
 import {UPDATE_USER} from '../actions/index';
-const DEFAULT_STATE = {
+const DEFAULT_STATE =
+[{
 createdAt:"",
 name:"",
 email:"",
@@ -15,9 +16,9 @@ posts:[],
 completed:0
 
 }
+]
 
-
-export default function(state = DEFAULT_STATE, action) {
+export default function(state = [], action) {
   if (action.error) {
     action.type = 'HANDLE_ERROR'; // change the type
   }
@@ -26,17 +27,13 @@ export default function(state = DEFAULT_STATE, action) {
 
     console.log(action.payload)
 
-var obj = {
-createdAt:action.payload.createdAt,
-name:action
-
-
-}
 
 
 
-return  Object.assign({}, ...state, {
 
+return  [
+...state,
+{
 createdAt:action.payload.createdAt,
 name:action.payload.name,
 email:action.payload.email,
@@ -50,7 +47,9 @@ step4:action.payload.step4,
 step5:action.payload.step5,
 completed:action.payload.completed,
 
-});
+}
+
+]
 
 
 
