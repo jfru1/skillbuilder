@@ -18,7 +18,7 @@ completed:0
 }
 ]
 
-export default function(state = [], action) {
+export default function(state = DEFAULT_STATE, action) {
   if (action.error) {
     action.type = 'HANDLE_ERROR'; // change the type
   }
