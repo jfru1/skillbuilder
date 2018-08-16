@@ -1,6 +1,7 @@
 import Axios from 'axios';
 
  export const UPDATE_USER = 'UPDATE_USER';
+ export const CREATE_USER = 'CREATE_USER';
 
 export function updateUser(user) {
 
@@ -8,6 +9,17 @@ export function updateUser(user) {
     type: UPDATE_USER,
     payload: user
   }
+}
+
+
+export function createUser(user){
+
+return{
+
+  type: CREATE_USER,
+  payload:user
+}
+
 }
 
 
