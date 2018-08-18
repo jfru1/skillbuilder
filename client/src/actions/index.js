@@ -39,7 +39,7 @@ export function checkUser(user){
 
 return{
 
-  type: CHECK_SKILL,
+  type: CHECK_USER,
   payload:user
 }
 
