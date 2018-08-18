@@ -25,7 +25,7 @@ export default function(state = DEFAULT_STATE, action) {
     action.type = 'HANDLE_ERROR'; // change the type
   }
   switch (action.type) {
-    case UPDATE_USER:
+    case CREATE_USER:
 
 
   return Object.assign({}, state, {
@@ -42,6 +42,19 @@ step3:action.payload.step3,
 step4:action.payload.step4,
 step5:action.payload.step5,
 completed:action.payload.completed,
+
+})
+
+
+
+case UPDATE_USER:
+
+
+
+return Object.assign({},state,{
+
+
+completed:action.payload.completed
 
 })
 

@@ -177,7 +177,6 @@ render(){
                   Your Last Post:
                   <h3>{this.state.lastPost}</h3>
 
-                  <h3> {this.state.completed}</h3>
                   </div>
 
                   </div>
