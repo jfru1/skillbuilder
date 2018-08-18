@@ -36,8 +36,10 @@ class YourPage extends React.Component {
 
 componentWillRecieveProps(){
 
-
-
+  this.setState({
+    email:this.props.email,
+    completed:this.props.completed
+  });
 
 }
 
