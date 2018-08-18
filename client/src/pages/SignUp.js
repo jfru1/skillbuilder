@@ -3,7 +3,7 @@ import SignUpForm from '../components/Form/SignUpForm.js';
 import API from '../utils/API.js'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { updateUser } from '../actions/index';
+import { updateUser, createUser } from '../actions/index';
 import {withRouter} from "react-router-dom";
 import history from '../history.js'
 
