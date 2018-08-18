@@ -90,7 +90,7 @@ const mapDispatchToProps = (dispatch) => ({
         if(res.data.password === password)
         {
           console.log("password approved")
-          dispatch(updateUser(res.data))
+          dispatch(checkUser(res.data))
           history.push('/userSkill')
 
         }

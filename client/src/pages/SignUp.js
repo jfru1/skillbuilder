@@ -86,7 +86,7 @@ const mapDispatchToProps = (dispatch) => ({
 
     API.saveClient(state.user)
     .then(function(res){
-  dispatch(updateUser(res.data))
+  dispatch(createUser(res.data))
   history.push('/userSkill')
 
     })
