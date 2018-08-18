@@ -55,6 +55,8 @@ completed:action.payload.completed
 
 })
 
+forceUpdate()
+
 case CREATE_SKILL:
 
 

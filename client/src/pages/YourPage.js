@@ -254,7 +254,6 @@ step2:state.user.step2,
 step3:state.user.step3,
 step4:state.user.step4,
 step5:state.user.step5,
-createdAt:state.user.createdAt,
 completed:state.user.completed,
 
 })
