@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { updateUser, createUser } from '../actions/index';
+import { updateUser,createSkill } from '../actions/index';
 import API from '../utils/API.js'
 import Skillform from '../components/Form/skillForm.js'
 import YourPage from '../pages/YourPage'
