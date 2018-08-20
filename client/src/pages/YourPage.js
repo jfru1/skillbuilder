@@ -280,6 +280,8 @@ completed:(parseFloat(state.completed) + .75),
     .then(function(res){
       dispatch(updateUser(res.data))
     })
+
+    console.log(this.props)
   }
 
 })
