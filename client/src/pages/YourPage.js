@@ -21,6 +21,7 @@ class YourPage extends React.Component {
       post:"",
       date:"",
       email:"",
+      completed:0,
       posted:true,
       timeSincePost:"",
       lastPost:""
@@ -272,7 +273,7 @@ var obj = {
 date:moment.tz(moment.tz.guess()).format(),
 post:state.post,
 email:state.email,
-completed:(parseFloat(this.props.completed) + .75),
+completed:(parseFloat(state.completed) + .75),
 }
 
     API.addPost(obj)

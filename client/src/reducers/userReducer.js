@@ -25,6 +25,27 @@ export default function(state = DEFAULT_STATE, action) {
     action.type = 'HANDLE_ERROR'; // change the type
   }
   switch (action.type) {
+
+
+    case UPDATE_USER:
+
+console.log('update reducer hit')
+
+    return Object.assign({},state,{
+
+    completed:action.payload.completed
+
+    })
+
+
+
+
+
+
+
+
+
+
     case CREATE_USER:
 
 
@@ -45,15 +66,7 @@ completed:action.payload.completed,
 
 })
 
-case UPDATE_USER:
 
-
-
-return Object.assign({},state,{
-
-completed:action.payload.completed
-
-})
 
 
 case CREATE_SKILL:
