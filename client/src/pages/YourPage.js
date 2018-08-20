@@ -36,6 +36,9 @@ class YourPage extends React.Component {
 
 componentWillRecieveProps(){
 
+console.log("recieved props")
+
+
   this.setState({
     email:this.props.email,
     completed:this.props.completed
