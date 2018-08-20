@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import {connect} from 'react-redux';
+import {connect, Provider} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import { updateUser } from '../actions/index';
 import API from '../utils/API.js'
@@ -21,7 +21,6 @@ class YourPage extends React.Component {
       post:"",
       date:"",
       email:"",
-      completed:0,
       posted:true,
       timeSincePost:"",
       lastPost:""
@@ -34,17 +33,17 @@ class YourPage extends React.Component {
 
 
 
-componentWillRecieveProps(){
-
-console.log("recieved props")
-
-
-  this.setState({
-    email:this.props.email,
-    completed:this.props.completed
-  });
-
-}
+// componentWillRecieveProps(){
+//
+// console.log("recieved props")
+//
+//
+//   this.setState({
+//     email:this.props.email,
+//     completed:this.props.completed
+//   });
+//
+// }
 
 
 
@@ -273,7 +272,7 @@ var obj = {
 date:moment.tz(moment.tz.guess()).format(),
 post:state.post,
 email:state.email,
-completed:(parseFloat(state.completed) + .75),
+completed:(parseFloat(this.props.completed) + .75),
 }
 
     API.addPost(obj)
