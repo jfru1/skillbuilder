@@ -56,6 +56,10 @@ componentWillMount(){
   });
 
 
+
+
+
+
 var obj ={
 email : this.props.email
 
@@ -279,9 +283,9 @@ completed:(parseFloat(state.completed) + .75),
     API.addPost(obj)
     .then(function(res){
       dispatch(updateUser(res.data))
+      console.log(res.data)
     })
 
-    console.log(this.props)
   }
 
 })
