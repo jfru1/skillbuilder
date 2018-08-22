@@ -21,7 +21,7 @@ step3:{type:String, required:false},
 step4:{type:String, required:false},
 step5:{type:String, required:false},
 Posts:{type:Array, required:false},
-completed:{type:String, required:true, default:0}
+completed:{type:Number, required:true, default:0}
 
 });
 
