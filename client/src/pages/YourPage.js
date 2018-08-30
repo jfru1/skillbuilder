@@ -7,7 +7,6 @@ import Skillform from '../components/Form/skillForm.js'
 import Navbar from '../components/Navbar/Navbar'
 import Textbox from '../components/Textbox/Textbox'
 import PracticeArc from '../components/Graphs/arcReference'
-
 const momentTimeZone = require("moment-timezone")
 const moment = require("moment")
 
@@ -69,42 +68,37 @@ API.checkPost(obj)
 
 .then( function(res){
   console.log(res.data[0].Posts[(res.data[0].Posts.length-1)])
-if (res.data[0].Posts.length > 0) {
+      if (res.data[0].Posts.length > 0) {
 
-  var timeNow = moment.tz(moment.tz.guess()).format()
-  var timeNow1 = moment(timeNow)
-  var timeStamp = moment(res.data[0].Posts[(res.data[0].Posts.length-1)].date);
-  var hoursElapsed = timeNow1.diff(timeStamp, 'h');
+         var timeNow = moment.tz(moment.tz.guess()).format()
+         var timeNow1 = moment(timeNow)
+         var timeStamp = moment(res.data[0].Posts[(res.data[0].Posts.length-1)].date);
+         var hoursElapsed = timeNow1.diff(timeStamp, 'h');
 
-  this.setState({
-    timeSincePost:hoursElapsed,
-    lastPost:res.data[0].Posts[(res.data[0].Posts.length-1)].post
-  });
-
-
-
-  //
-  if(hoursElapsed > 24)
-  {
-
-    this.setState({
-      posted:false
-    });
-
-
-  }
+         this.setState({
+         timeSincePost:hoursElapsed,
+         lastPost:res.data[0].Posts[(res.data[0].Posts.length-1)].post
+         });
+        
+     if(hoursElapsed > 24)
+        {
+           this.setState({
+           posted:false
+           });
+        }
 
   console.log(timeNow)
   // console.log(timeStamp)
   console.log(hoursElapsed)
-}
+        }
 
-else{
-  this.setState({
-    posted:false
-  });
+    else
+    {
+        this.setState({
+        posted:false
+        });
 
-}
+    }
 
 
 
@@ -113,8 +107,6 @@ else{
 
 
 }
-
-
 
 
 
